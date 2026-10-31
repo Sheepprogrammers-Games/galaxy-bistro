@@ -1,6 +1,14 @@
-# 银河系米其林指南：荒野美食猎人
+<p align="center">
+  <img src="docs/screenshots/cover.jpg" width="720" alt="银河系米其林指南 封面">
+</p>
 
-一款太空主题的异星料理烹饪与经营网页游戏。迎接形态各异的星际食客，研发与烹制异星料理，经营你的深空小馆，争取银河系米其林星级评审。
+<h1 align="center">银河系米其林指南：荒野美食猎人</h1>
+
+<p align="center">一款太空主题的异星料理烹饪与经营游戏</p>
+
+## 简介
+
+迎接形态各异的星际食客，研发与烹制异星料理，经营你的深空小馆，争取银河系米其林星级评审。
 
 ## 玩法
 
@@ -9,6 +17,15 @@
 - **叙事互动**：满足客人的隐式需求与情绪愿望，解锁宇宙奇闻。
 - **星级评审**：神秘匿名评审官暗访，评定 1–3 星。
 - **升级扩建**：购置装备与装饰，提升居酒屋。
+
+## 画面
+
+<p align="center">
+  <img src="docs/screenshots/01-title.jpg" width="70%" alt="标题与主菜单">
+</p>
+<p align="center">
+  <img src="docs/screenshots/02-keyart.jpg" width="70%" alt="主视觉">
+</p>
 
 ## 技术栈
 
@@ -42,6 +59,7 @@ galaxy-bistro/
 ├── build.mjs           构建脚本（产出 dist/）
 ├── src/                源码：main.js、core、entities、systems、world、ui、audio、data.js
 ├── assets/             图片、音频、字体
+├── docs/               设计与玩法文档、画面截图
 └── PRODUCT.md / DESIGN.md / GAMEPLAY_SPEC.md  设计与玩法文档
 ```
 
