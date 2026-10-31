@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>银河系米其林指南：荒野美食猎人 (Galaxy Hunter: Gourmet Odyssey)</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <style>
+    /* 随包分发的字体，字形文件位于 assets/fonts */
+    @font-face {
+      font-family: 'Noto Sans SC';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('./assets/fonts/NotoSansSC-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Noto Sans SC';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('./assets/fonts/NotoSansSC-500.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Noto Sans SC';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('./assets/fonts/NotoSansSC-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Noto Sans SC';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('./assets/fonts/NotoSansSC-700.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'DM Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('./assets/fonts/DMMono-400-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'DM Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('./assets/fonts/DMMono-400-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'DM Mono';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('./assets/fonts/DMMono-500-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'DM Mono';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('./assets/fonts/DMMono-500-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+  </style>
+  <link rel="stylesheet" href="./src/styles.css?v=20260827n-habitat" />
+</head>
+<body>
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-title">
+        <span class="brand-mark" data-static-icon="brand" aria-hidden="true"></span>
+        <span class="brand-copy"><strong>银河系米其林指南</strong><small>STARDUST BISTRO / FIELD EDITION</small></span>
+        <span class="star-badge" id="top-hunter-rank"><span class="star-badge-icon" data-static-icon="star" aria-hidden="true"></span><span>初星猎人</span></span>
+      </div>
+      <div class="stats-group">
+        <div class="stat-item stat-time"><span class="stat-symbol" data-static-icon="clock"></span><span id="top-day-clock">第 1 宇宙日 · 白昼</span></div>
+        <div class="stat-item credits"><span class="stat-symbol" data-static-icon="coin"></span><span>星币</span><b id="top-credits">150</b></div>
+        <div class="stat-item reputation"><span class="stat-symbol" data-static-icon="spark"></span><span>口碑</span><b id="top-rep">0</b></div>
+        <nav class="top-actions" aria-label="快捷菜单">
+          <button class="btn-icon top-action" id="top-btn-camp" title="野外营地烹饪 [C]"><span class="action-glyph glyph-camp" data-static-icon="camp" aria-hidden="true"></span><span>营地</span><kbd>C</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-bag" title="猎人物资行囊 [B]"><span class="action-glyph glyph-bag" data-static-icon="backpack" aria-hidden="true"></span><span>背包</span><kbd>B</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-bounty" title="米其林悬赏榜 [Q]"><span class="action-glyph glyph-bounty" data-static-icon="target" aria-hidden="true"></span><span>悬赏</span><kbd>Q</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-codex" title="美食食谱图鉴 [R]"><span class="action-glyph glyph-codex" data-static-icon="book" aria-hidden="true"></span><span>图鉴</span><kbd>R</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-almanac" title="猎人星历 [N]"><span class="action-glyph" data-static-icon="clock" aria-hidden="true"></span><span>星历</span><kbd>N</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-map" title="星域测绘图 [V]"><span class="action-glyph" data-static-icon="target" aria-hidden="true"></span><span>地图</span><kbd>V</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-trial" title="终极评鉴 [T]"><span class="action-glyph" data-static-icon="star" aria-hidden="true"></span><span>评鉴</span><kbd>T</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-workshop" title="星尘工坊升级 [G]"><span class="action-glyph glyph-workshop" data-static-icon="bolt" aria-hidden="true"></span><span>工坊</span><kbd>G</kbd></button>
+          <button class="btn-icon top-action" id="top-btn-sound" title="宇宙电台音乐 [M]"><span class="action-glyph glyph-sound" data-static-icon="music" aria-hidden="true"></span><span>音乐</span><kbd>M</kbd></button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Game Canvas Stage -->
+    <main class="main-stage" id="stage-container">
+      <canvas id="game-canvas"></canvas>
+
+      <!-- Start / Title Overlay Screen -->
+      <div class="start-screen-overlay" id="start-screen">
+        <div class="title-stage" aria-hidden="true">
+          <div class="title-art" style="background-image: url('./assets/cover.jpg');"></div>
+          <canvas class="title-motes" id="title-motes"></canvas>
+          <div class="title-scrim"></div>
+          <div class="title-scanlines"></div>
+          <div class="title-vignette"></div>
+        </div>
+
+        <div class="title-rail title-rail-top">
+          <span class="rail-mark" data-static-icon="brand" aria-hidden="true"></span>
+          <span class="rail-name">STARDUST BISTRO</span>
+          <span class="rail-sep"></span>
+          <span class="rail-dim">FIELD EDITION</span>
+          <span class="rail-spacer"></span>
+          <span class="rail-dim" id="title-build">BUILD 0.9.0</span>
+        </div>
+
+        <div class="title-body">
+          <section class="title-left">
+            <div class="title-logo">
+              <span class="logo-crest" data-static-icon="brand" aria-hidden="true"></span>
+              <div class="logo-kicker"><i></i><span>FIELD GUIDE / 09A</span></div>
+              <h1 class="logo-cn">银河系米其林指南</h1>
+              <h2 class="logo-sub">荒野美食猎人</h2>
+              <div class="logo-en">GALAXY HUNTER <em>·</em> GOURMET ODYSSEY</div>
+            </div>
+
+            <button class="btn-launch-game" id="btn-start-game" type="button">
+              <span class="launch-icon" data-static-icon="arrow" aria-hidden="true"></span>
+              <span id="tm-play-label">踏入异星荒野</span>
+              <small id="tm-play-sub">ENTER THE WILD</small>
+            </button>
+
+            <nav class="title-menu" id="title-menu" aria-label="主菜单">
+              <button class="tm-item" data-menu="roster" type="button">
+                <span class="tm-idx">01</span>
+                <span class="tm-copy"><strong>选择主厨</strong><small>CHEF ROSTER</small></span>
+                <span class="tm-cue" data-static-icon="arrow" aria-hidden="true"></span>
+              </button>
+              <button class="tm-item" data-menu="controls" type="button">
+                <span class="tm-idx">02</span>
+                <span class="tm-copy"><strong>操作指南</strong><small>FIELD CONTROLS</small></span>
+                <span class="tm-cue" data-static-icon="arrow" aria-hidden="true"></span>
+              </button>
+              <button class="tm-item" data-menu="codex" type="button">
+                <span class="tm-idx">03</span>
+                <span class="tm-copy"><strong>星域档案</strong><small>SECTOR BRIEFING</small></span>
+                <span class="tm-cue" data-static-icon="arrow" aria-hidden="true"></span>
+              </button>
+            </nav>
+
+            <div class="title-chef" id="title-chef"></div>
+          </section>
+
+          <section class="title-right" id="title-panel" aria-live="polite"></section>
+        </div>
+
+        <div class="title-rail title-rail-bottom">
+          <span class="rail-dim" id="title-save">LOCAL SAVE ENABLED</span>
+          <span class="rail-spacer"></span>
+          <span class="rail-keys"><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>Enter</kbd> 确认</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Standalone bundled script supporting direct double-click file:/// execution -->
+  <script src="./game.bundle.js?v=20260827n-habitat"></script>
+</body>
+</html>
